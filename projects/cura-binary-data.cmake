@@ -1,6 +1,6 @@
 ExternalProject_Add(cura-binary-data
     GIT_REPOSITORY https://github.com/Ultimaker2019/cura-binary-data
-    GIT_TAG tags/${CURABINARYDATA_BRANCH_OR_TAG}
+    GIT_TAG origin/${CURABINARYDATA_BRANCH_OR_TAG}
     GIT_SHALLOW 1
     STEP_TARGETS update
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTERNALPROJECT_INSTALL_PREFIX}
