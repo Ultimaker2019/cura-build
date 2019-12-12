@@ -19,7 +19,7 @@ endif()
 
 ExternalProject_Add(CuraEngine
     GIT_REPOSITORY https://github.com/Ultimaker2019/CuraEngine
-    GIT_TAG tags/${CURAENGINE_BRANCH_OR_TAG}
+    GIT_TAG origin/${CURAENGINE_BRANCH_OR_TAG}
     GIT_SHALLOW 1
     STEP_TARGETS update
     CMAKE_GENERATOR "${cmake_generator}"
