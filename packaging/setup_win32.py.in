@@ -22,7 +22,7 @@ def load_numpy(finder, module):
     finder.IncludePackage("numpy.linalg._umath_linalg")
 
     # Include all MKL files that are needed to get Numpy with MKL working.
-    npy_core_dir = os.path.join(module.path[0], "core")
+    npy_core_dir = os.path.join(module.path[0], "DLLs")
     required_mkl_files = [
         "mkl_intel_thread.dll",
         "mkl_core.dll",
@@ -181,10 +181,10 @@ executables = [
 ]
 
 setup(
-    name = "Ultimaker Cura",
+    name = "L-DEVO Cura",
     version = "@CURA_VERSION_MAJOR@.@CURA_VERSION_MINOR@.@CURA_VERSION_PATCH@",
-    description = "Ultimaker Cura",
-    long_description = "Ultimaker Cura - 3D Printing Software",
+    description = "L-DEVO Cura",
+    long_description = "L-DEVO Cura - 3D Printing Software",
     author = "Ultimaker B.V.",
     url = "http://software.ultimaker.com/",
     license = "GNU LESSER GENERAL PUBLIC LICENSE (LGPL)",
