@@ -790,6 +790,10 @@ Section "-Core installation"
       ExecWait '"$INSTDIR\arduino\dpinst-x86.exe" /lm /sw'
   ${EndIf}
 
+  IfSilent +3
+  IntCmp $libusb_selected 0 +2
+  ExecWait '"$INSTDIR\inf_tool\inf-wizard.exe" /lm /sw'
+
 @CPACK_NSIS_EXTRA_INSTALL_COMMANDS@
 
 SectionEnd

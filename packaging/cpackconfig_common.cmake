@@ -9,7 +9,7 @@ cpack_add_component(_cura
 # ========================================
 set(CPACK_PACKAGE_NAME "L-DEVO Cura")
 set(CPACK_PACKAGE_VENDOR "Ultimaker B.V.")
-set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/Ultimaker/Cura")
+set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/Ultimaker2019/Cura")
 
 # MSI only supports version format like "x.x.x.x" where x is an integer from 0 to 65534
 set(CPACK_PACKAGE_VERSION_MAJOR ${CURA_VERSION_MAJOR})

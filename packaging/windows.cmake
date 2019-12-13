@@ -50,15 +50,20 @@ install(DIRECTORY ${CMAKE_BINARY_DIR}/package/
 
 if(CPACK_GENERATOR MATCHES "NSIS64" OR CPACK_GENERATOR MATCHES "NSIS")
     # Only NSIS needs to have arduino and vcredist
-    install(DIRECTORY ${EXTERNALPROJECT_INSTALL_PREFIX}/arduino
+    install(DIRECTORY ${EXTERNALPROJECT_INSTALL_PREFIX}/inf_tool
             DESTINATION "."
-            COMPONENT "arduino"
+            COMPONENT "libusb"
     )
 
-    install(FILES ${EXTERNALPROJECT_INSTALL_PREFIX}/vcredist_x64.exe
-            DESTINATION "."
-            COMPONENT "vcredist"
-    )
+    #install(DIRECTORY ${EXTERNALPROJECT_INSTALL_PREFIX}/arduino
+    #        DESTINATION "."
+    #        COMPONENT "arduino"
+    #)
+
+    #install(FILES ${EXTERNALPROJECT_INSTALL_PREFIX}/vcredist_x64.exe
+    #        DESTINATION "."
+    #        COMPONENT "vcredist"
+    #)
 
     set(CPACK_NSIS_PACKAGE_ARCHITECTURE "64")
 
