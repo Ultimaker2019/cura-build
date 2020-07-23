@@ -6,9 +6,9 @@ option(CURA_ENABLE_DEBUGMODE "Enable crash handler and other debug options in Cu
 string(REPLACE ";" "," _cura_no_install_plugins "${CURA_NO_INSTALL_PLUGINS}")
 
 ExternalProject_Add(Cura
-    GIT_REPOSITORY https://github.com/ultimaker/Cura
-    GIT_TAG origin/${CURA_BRANCH_OR_TAG}
-    GIT_SHALLOW 1
+    GIT_REPOSITORY https://github.com/ultimaker2019/Cura
+    GIT_TAG ${CURA_BRANCH_OR_TAG}
+#    GIT_SHALLOW 1
     STEP_TARGETS update
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTERNALPROJECT_INSTALL_PREFIX}
                -DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}

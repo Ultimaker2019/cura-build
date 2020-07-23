@@ -18,9 +18,9 @@ elseif (BUILD_OS_OSX)
 endif()
 
 ExternalProject_Add(CuraEngine
-    GIT_REPOSITORY https://github.com/ultimaker/CuraEngine
-    GIT_TAG origin/${CURAENGINE_BRANCH_OR_TAG}
-    GIT_SHALLOW 1
+    GIT_REPOSITORY https://github.com/ultimaker2019/CuraEngine
+    GIT_TAG ${CURA_BRANCH_OR_TAG}
+#    GIT_SHALLOW 1
     STEP_TARGETS update
     CMAKE_GENERATOR "${cmake_generator}"
     CMAKE_ARGS -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}

@@ -13,9 +13,9 @@ find_package(SciPy 0.17 REQUIRED)
 string(REPLACE ";" "," _cura_no_install_plugins "${CURA_NO_INSTALL_PLUGINS}")
 
 ExternalProject_Add(Uranium
-    GIT_REPOSITORY https://github.com/ultimaker/Uranium
-    GIT_TAG origin/${URANIUM_BRANCH_OR_TAG}
-    GIT_SHALLOW 1
+    GIT_REPOSITORY https://github.com/ultimaker2019/Uranium
+    GIT_TAG ${CURA_BRANCH_OR_TAG}
+#    GIT_SHALLOW 1
     STEP_TARGETS update
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTERNALPROJECT_INSTALL_PREFIX}
                -DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}
