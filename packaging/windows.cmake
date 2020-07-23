@@ -67,10 +67,8 @@ if(CPACK_GENERATOR MATCHES "NSIS64" OR CPACK_GENERATOR MATCHES "NSIS")
 
     if(CPACK_GENERATOR MATCHES "NSIS64")
         set(CPACK_NSIS_PACKAGE_ARCHITECTURE "64")
-        set(NSIS_FILE_NAME "NSIS64")
     elseif(CPACK_GENERATOR MATCHES "NSIS")
         set(CPACK_NSIS_PACKAGE_ARCHITECTURE "32")
-        set(NSIS_FILE_NAME "NSIS64")
     endif()
 
     include(packaging/cpackconfig_nsis.cmake)
@@ -79,8 +77,8 @@ if(CPACK_GENERATOR MATCHES "NSIS64" OR CPACK_GENERATOR MATCHES "NSIS")
     add_custom_command(
         TARGET build_bundle POST_BUILD
         # NOTE: Needs testing here, whether CPACK_SYSTEM_NAME is working good for 64bit builds, too.
-        COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/${NSIS_FILE_NAME} "${CMAKE_CURRENT_BINARY_DIR}/_CPack_Packages/${CPACK_SYSTEM_NAME}/${NSIS_FILE_NAME}"
-        COMMENT "Copying ${NSIS_FILE_NAME} scripts from [${CMAKE_SOURCE_DIR}/${NSIS_FILE_NAME}] to [${CMAKE_CURRENT_BINARY_DIR}/_CPack_Packages/${CPACK_SYSTEM_NAME}/${NSIS_FILE_NAME}]"
+        COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/NSIS "${CMAKE_CURRENT_BINARY_DIR}/_CPack_Packages/${CPACK_SYSTEM_NAME}/NSIS"
+        COMMENT "Copying NSIS scripts from [${CMAKE_SOURCE_DIR}/NSIS] to [${CMAKE_CURRENT_BINARY_DIR}/_CPack_Packages/${CPACK_SYSTEM_NAME}/NSIS]"
     )
 
 elseif(CPACK_GENERATOR MATCHES "WIX")
