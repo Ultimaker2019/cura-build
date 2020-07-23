@@ -33,7 +33,7 @@ add_custom_command(
 # QTBUG-57832
 # Patch Qt dialogplugin.dll to avoid adding all available drives as shortcuts for FileDialog.
 #
-if(BUILD_OS_WINDOWS AND CPACK_GENERATOR MATCHES "NSIS64")
+if(BUILD_OS_WINDOWS AND BUILD_OS_WIN64)
     add_custom_command(
         TARGET build_bundle POST_BUILD
         # NOTE: Needs testing here, whether CPACK_SYSTEM_NAME is working good for 64bit builds, too.
@@ -65,9 +65,9 @@ if(CPACK_GENERATOR MATCHES "NSIS64" OR CPACK_GENERATOR MATCHES "NSIS")
     #        COMPONENT "vcredist"
     #)
 
-    if(CPACK_GENERATOR MATCHES "NSIS64")
+    if(BUILD_OS_WIN64)
         set(CPACK_NSIS_PACKAGE_ARCHITECTURE "64")
-    elseif(CPACK_GENERATOR MATCHES "NSIS")
+    elseif(BUILD_OS_WIN32)
         set(CPACK_NSIS_PACKAGE_ARCHITECTURE "32")
     endif()
 
