@@ -33,7 +33,7 @@ add_custom_command(
 # QTBUG-57832
 # Patch Qt dialogplugin.dll to avoid adding all available drives as shortcuts for FileDialog.
 #
-if(BUILD_OS_WINDOWS)
+if(BUILD_OS_WINDOWS AND CPACK_GENERATOR MATCHES "NSIS64")
     add_custom_command(
         TARGET build_bundle POST_BUILD
         # NOTE: Needs testing here, whether CPACK_SYSTEM_NAME is working good for 64bit builds, too.
@@ -50,17 +50,26 @@ install(DIRECTORY ${CMAKE_BINARY_DIR}/package/
 
 if(CPACK_GENERATOR MATCHES "NSIS64" OR CPACK_GENERATOR MATCHES "NSIS")
     # Only NSIS needs to have arduino and vcredist
-    install(DIRECTORY ${EXTERNALPROJECT_INSTALL_PREFIX}/arduino
+    install(DIRECTORY ${EXTERNALPROJECT_INSTALL_PREFIX}/inf_tool
             DESTINATION "."
-            COMPONENT "arduino"
+            COMPONENT "libusb"
     )
 
-    install(FILES ${EXTERNALPROJECT_INSTALL_PREFIX}/vcredist_x64.exe
-            DESTINATION "."
-            COMPONENT "vcredist"
-    )
+    #install(DIRECTORY ${EXTERNALPROJECT_INSTALL_PREFIX}/arduino
+    #        DESTINATION "."
+    #        COMPONENT "arduino"
+    #)
 
-    set(CPACK_NSIS_PACKAGE_ARCHITECTURE "64")
+    #install(FILES ${EXTERNALPROJECT_INSTALL_PREFIX}/vcredist_x64.exe
+    #        DESTINATION "."
+    #        COMPONENT "vcredist"
+    #)
+
+    if(CPACK_GENERATOR MATCHES "NSIS64")
+        set(CPACK_NSIS_PACKAGE_ARCHITECTURE "64")
+    elseif(CPACK_GENERATOR MATCHES "NSIS")
+        set(CPACK_NSIS_PACKAGE_ARCHITECTURE "32")
+    endif()
 
     include(packaging/cpackconfig_nsis.cmake)
     include(CPack)

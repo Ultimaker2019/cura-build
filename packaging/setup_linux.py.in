@@ -141,7 +141,7 @@ executables = [
 ]
 
 setup(
-    name = "Ultimaker Cura",
+    name = "L-DEVO Cura",
     version = "@CURA_MAJOR_VERSION@.@CURA_MINOR_VERSION@.@CURA_PATCH_VERSION@",
     author = "Ultimaker B.V.",
     url="http://software.ultimaker.com/",

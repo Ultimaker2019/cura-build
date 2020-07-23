@@ -5,13 +5,14 @@ include(packaging/cpackconfig_common.cmake)
 # Only include Arduino driver and VC runtime redistribution installer for NSIS
 cpack_add_component(vcredist DISPLAY_NAME "Install Visual Studio 2015 Redistributable")
 cpack_add_component(arduino DISPLAY_NAME "Arduino Drivers")
+cpack_add_component(libusb DISPLAY_NAME "Libusb Drivers")
 
 # ========================================
 # NSIS
 # ========================================
 set(CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON)
 set(CPACK_NSIS_EXECUTABLES_DIRECTORY ".")
-set(CPACK_NSIS_STARTMENU_DIRECTORY "Ultimaker Cura")
+set(CPACK_NSIS_STARTMENU_DIRECTORY "L-DEVO Cura")
 set(CPACK_NSIS_INSTALLED_ICON_NAME "Cura.ico")
 set(CPACK_NSIS_MUI_ICON ${CMAKE_SOURCE_DIR}\\\\packaging\\\\cura.ico)   # note: fails with forward '/'
 set(CPACK_PACKAGE_ICON ${CMAKE_SOURCE_DIR}\\\\packaging\\\\cura.ico)
