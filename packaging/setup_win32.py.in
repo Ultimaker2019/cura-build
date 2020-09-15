@@ -114,7 +114,7 @@ def load_shapely(finder, module):
 hooks.load_shapely = load_shapely
 
 search_path = sys.path.copy()
-search_path.insert(1, "@EXTERNALPROJECT_INSTALL_PREFIX@/lib/python3.5/site-packages/")
+search_path.insert(1, "@EXTERNALPROJECT_INSTALL_PREFIX@/lib/python3.7/site-packages/")
 #search_path.insert(2, "@CMAKE_PREFIX_PATH@/lib/python3.5/site-packages/")
 
 # Dependencies are automatically detected, but it might need
@@ -154,7 +154,7 @@ build_options = {
         ("@EXTERNALPROJECT_INSTALL_PREFIX@/bin/CuraEngine.exe", ""),
         ("@EXTERNALPROJECT_INSTALL_PREFIX@/lib/cura/plugins", ""),
         ("@EXTERNALPROJECT_INSTALL_PREFIX@/lib/uranium/plugins", ""),
-        ("@EXTERNALPROJECT_INSTALL_PREFIX@/lib/python3.5/site-packages/UM/Qt/qml/UM", "qml/UM"),
+        ("@EXTERNALPROJECT_INSTALL_PREFIX@/lib/python3.7/site-packages/UM/Qt/qml/UM", "qml/UM"),
         ("@EXTERNALPROJECT_INSTALL_PREFIX@/share/cura/resources", "resources"),
         ("@EXTERNALPROJECT_INSTALL_PREFIX@/share/uranium/resources", "resources"),
         ("@CMAKE_PREFIX_PATH@/bin/openctm.dll", ""), # For opening .CTM files
@@ -185,10 +185,10 @@ executables = [
 ]
 
 setup(
-    name = "Ultimaker Cura",
+    name = "L-DEVO Cura",
     version = "@CURA_VERSION_MAJOR@.@CURA_VERSION_MINOR@.@CURA_VERSION_PATCH@",
-    description = "Ultimaker Cura",
-    long_description = "Ultimaker Cura - 3D Printing Software",
+    description = "L-DEVO Cura",
+    long_description = "L-DEVO Cura - 3D Printing Software",
     author = "Ultimaker B.V.",
     url = "http://software.ultimaker.com/",
     license = "GNU LESSER GENERAL PUBLIC LICENSE (LGPL)",
