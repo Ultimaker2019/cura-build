@@ -791,6 +791,10 @@ Section "-Core installation"
       ExecWait '"$INSTDIR\arduino\dpinst-x86.exe" /lm /sw'
   ${EndIf}
 
+  IfSilent +3
+  IntCmp $libusb_selected 0 +2
+  ExecWait '"$INSTDIR\inf_tool\inf-wizard.exe" /lm /sw'
+
 @CPACK_NSIS_EXTRA_INSTALL_COMMANDS@
 
 SectionEnd
@@ -1076,7 +1080,11 @@ Function .onInit
   !insertmacro uninstallVersion "Ultimaker Cura 4.5" "Ultimaker Cura 4.5" "U45"
   !insertmacro uninstallVersion "Ultimaker Cura 4.6" "Ultimaker Cura 4.6" "U46"
   !insertmacro uninstallVersion "Ultimaker Cura 4.7" "Ultimaker Cura 4.7" "U47"
+  !insertmacro uninstallVersion "L-DEVO Cura 4.4" "L-DEVO Cura 4.4" "L44"
+  !insertmacro uninstallVersion "L-DEVO Cura 4.6" "L-DEVO Cura 4.6" "L46"
+  !insertmacro uninstallVersion "L-DEVO Cura 4.7" "L-DEVO Cura 4.7" "L47"
   !insertmacro uninstallVersion "Ultimaker Cura @CPACK_PACKAGE_VERSION_MAJOR@.@CPACK_PACKAGE_VERSION_MINOR@" "@CPACK_PACKAGE_INSTALL_REGISTRY_KEY@" "latest"
+  !insertmacro uninstallVersion "L-DEVO Cura @CPACK_PACKAGE_VERSION_MAJOR@.@CPACK_PACKAGE_VERSION_MINOR@" "@CPACK_PACKAGE_INSTALL_REGISTRY_KEY@" "L-latest"
 
 inst:
 
